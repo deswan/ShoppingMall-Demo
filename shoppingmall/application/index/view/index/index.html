@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	{import type="css" file="static.css" basepath="/thinkphp5/public" }
+</head>
+<body>
+	<header>
+		<ul>
+			<li><a href={:url('index/index')}>首页</a></li>
+			<li><a href={:url('type/index')}>分类</a></li>
+			<li><a href={:url('shopcar/index')}>购物车</a></li>
+			<li><a href={:url('user/index')}>{$username | default="个人中心"}</a>
+			{if condition="isset($username)"}
+			<li><a href={:url('user/logout')}>退出</a></li>
+			{/if}
+
+			
+		</ul>
+	</header>
+	<div class="top"></div>
+	<div class="container">
+
+			{volist name='goodsList' id='good'}
+			<div class="goods">
+				<img src='/thinkphp5/public/static/{$good.imgurl}'>
+				<p class="goodName">{$good.name}</p>
+				<p class="price">价钱:{$good.price}</p>
+				<p class='type'>分类:{$good.type_name}</p>
+				<p class='hits'>热门度：{$good.hits}</p>
+				<p class="join"><a href={:url('shopcar/join',['id'=>$good.id])}>加入购物车</a></p>
+			</div>
+			{/volist}
+	</div>
+	
+</body>
+</html>

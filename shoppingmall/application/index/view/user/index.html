@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{import type="css" file="css" basepath="/thinkphp5/public/static"}
+</head>
+<body>
+<header>
+		<ul>
+			<li><a href={:url('index/index')}>首页</a></li>
+			<li><a href={:url('type/index')}>分类</a></li>
+			<li><a href={:url('shopcar/index')}>购物车</a></li>
+			<li><a href={:url('user/index')}>个人中心</a></li>
+		</ul>
+	</header>
+	<div class="top"></div>
+
+<form action="" method="post" id="signup">
+	<label>用户名</label>
+	<input type="text" name="username">
+	<label>密码</label>
+	<input type="password" name='password'>
+	<input type="submit" value='登陆' name='login'>
+	<input type="submit" value='注册' name='signup'>
+	
+</form>
+{import file='jQuery' basepath='/thinkphp5/public/static'}
+{import file='form' basepath='/thinkphp5/public/static'}
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	{import type="css" file="css" basepath="/thinkphp5/public/static"}
+</head>
+<body>
+	<header>
+		<ul>
+			<li><a href={:url('index/index')}>首页</a></li>
+			<li><a href={:url('type/index')}>分类</a></li>
+			<li><a href={:url('shopcar/index')}>购物车</a></li>
+			<li><a href={:url('user/index')}>{$username | default="个人中心"}</a></li>
+		</ul>
+	</header>
+	<div class="top"></div>
+
+
+	<div class="container">
+		<ul class='menu'>
+			{volist name='navData' id='data'}
+			<li><a href={:url('index/type/index',array('typeid'=>$data.id))}
+				>{$data.type_name}</a><li>
+			{/volist}			
+		</ul>
+			{volist name='goodsList' id='good'}
+			<div class="goods">
+				<img src='/thinkphp5/public/static/{$good.imgurl}'>
+				<p class="goodName">{$good.name}</p>
+				<p class="price">价钱:{$good.price}</p>
+				<p class='type'>分类:{$good.type_name}</p>
+				<p class='hits'>热门度：{$good.hits}</p>
+				<p class="join"><a href={:url('shopcar/join',['id'=>$good.id])}>加入购物车</a></p>
+			</div>
+			{/volist}
+	</div>
+	
+</body>
+</html>
